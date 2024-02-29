@@ -5,20 +5,27 @@ import { toast } from '@baronha/ting';
 // ...
 const options = {
   title: 'Done 😎',
+    duration: 10,
   message: 'Successful!!',
 };
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Pressable style={{
-          padding:10
-      }} onPress={()=>{
+      <Pressable style={({pressed})=>({
+          paddingVertical:15,
+          paddingHorizontal:30,
+          borderRadius: 100,
+          backgroundColor: pressed ? 'lightgray' : 'white'
+      })} onPress={()=>{
         toast(options); // easy to use
       }}>
-        <Text>Press me</Text>
+        <Text style={{
+            color: '#2a2a2a',
+            fontWeight: 'bold',
+            fontSize: 20
+        }}>Show awesome toast‍🔥</Text>
       </Pressable>
-      <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
     </View>
   );
